@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <h2 class="text-center">User Dashboard</h2>
+    <h4>Your Bookings</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cab</th>
+          <th>Date & Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings">
+          <td>{{ booking.id }}</td>
+          <td>{{ booking.cab.id }}</td>
+          <td>{{ booking.dateTime }}</td>
+          <td>{{ booking.status }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteBooking(booking.id)">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <h2 class="text-center">Admin Dashboard</h2>
+    <div class="mb-4">
+      <button class="btn btn-success" (click)="createBooking()">Create Booking</button>
+      <button class="btn btn-info" (click)="createCab()">Create Cab</button>
+    </div>
+    <h4>Bookings</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Cab</th>
+          <th>Date & Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings">
+          <td>{{ booking.id }}</td>
+          <td>{{ booking.user.username }}</td>
+          <td>{{ booking.cab.id }}</td>
+          <td>{{ booking.dateTime }}</td>
+          <td>{{ booking.status }}</td>
+          <td>
+            <button class="btn btn-warning" (click)="updateBooking(booking)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteBooking(booking.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h4>Cabs</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cab of cabs">
+          <td>{{ cab.id }}</td>
+          <td>{{ cab.source }}</td>
+          <td>{{ cab.destination }}</td>
+          <td>{{ cab.type }}</td>
+          <td>
+            <button class="btn btn-warning" (click)="updateCab(cab)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteCab(cab.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
